@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="tx-center countdown">Classifica Finale Monkeys!</h1>
+{% if context|length > 0 %}
+<ul class="try-list">
+  <li class="list-header group">
+  <div class="rank">
+    <span>#</span>
+  </div>
+  <div class="user">Utente</div>
+  <div class="date">Data</div>
+  <div class="hour">Ora</div>
+  <div class="time">Tempo</div>
+  </li>
+  {% for rank in context %}
+  <li class="list-elem group">
+  <div class="rank">
+    {% if loop.index == 1 %}
+    <span class="gold">{{loop.index}}</span>
+    {% elif loop.index == 2 %}
+    <span class="silver">{{loop.index}}</span>
+    {% elif loop.index == 3 %}
+    <span class="bronze">{{loop.index}}</span>
+    {% else %}
+    <span>{{loop.index}}</span>
+    {% endif %}
+  </div>
+  <div class="user">{{rank.user.name}}</div>
+  <div class="date">{{rank.date}}</div>
+  <div class="hour">{{rank.hour}}</div>
+  <div class="time">{{rank.time}} s</div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="tx-center countdown">Non c'è ancora nessuno in questa classifica!!</p>
+{% endif %}
+
+{% endblock %}

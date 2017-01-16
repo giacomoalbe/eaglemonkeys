@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block scripts %}
+        <script src="static/js/jquery.min.js"></script>
+        <script src="static/js/main.js"></script>
+{% endblock %}
+{% block content %}
+            <h1 class="tx-center countdown">Starting...</h1>
+            <div class="fields">
+                <form id="fieldsForm" action="/register-try" method="POST">
+                    {% for field in context %}
+                    <div>
+                        <div>
+                            <label for="">{{ field[0] }}</label>
+                        </div>
+                        <input type="text" name="{{ field[0] }}">
+                        <span>Inserisci: "{{ field[1] }}"</span>
+                    </div>
+                    {% endfor %}
+                    <input type="hidden" name="time-elapsed" value="0">
+                    <input class="btn" type="submit" value="Finito!">
+                </form>
+            </div>
+{% endblock %}
+

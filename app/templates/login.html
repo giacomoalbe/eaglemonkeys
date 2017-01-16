@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="login-cont">
+  {% if context and context.login_error %}
+  <p>Error: {{context.login_error}}</p>
+  {% endif %}
+  <h1 class="tx-center countdown">Login</h1>
+  <form action="/login" method="POST">
+    <div class="group">
+      <label for="email">Email</label>
+      <input type="text" name="email">
+    </div>
+    <div class="group">
+      <label for="password">Password</label>
+      <input type="password" name="password">
+    </div>
+    <input class="btn" type="submit" value="Login">
+  </form>
+</div>
+<div class="login-cont">
+  {% if context and context.signup_error %}
+  <p>Error: {{context.signup_error}}</p>
+  {% endif %}
+  <h1 class="tx-center countdown">SignUp</h1>
+  <form action="/signup" method="POST">
+    <div class="group">
+      <label for="name">Name</label>
+      <input type="text" name="name">
+    </div>
+    <div class="group">
+      <label for="email">Email</label>
+      <input type="text" name="email">
+    </div>
+    <div class="group">
+      <label for="password">Password</label>
+      <input type="password" name="password">
+    </div>
+    <div class="group">
+      <label for="repeat_password">Repeat Password</label>
+      <input type="password" name="repeat_password">
+    </div>
+    <input class="btn" type="submit" value="SignUp">
+  </form>
+</div>
+{% endblock %}

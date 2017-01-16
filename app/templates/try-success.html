@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if context.success %}
+  <h1 class="tx-center countdown">Ce l'hai fatta! E ci sei riuscito in soli <span>{{context.time}} s</span>!</h1>
+{% else %}
+  <h1>Ci sono stati degli errori!</h1>
+  <p>{{context.error}}</p>
+{% endif %}
+<a href="/prova" class="btn">Ritenta!</a>
+{% endblock %}

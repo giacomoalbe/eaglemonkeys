@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scimmia Contest</title>
+    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+    <link rel="stylesheet" href="/static/css/main.css">
+    {% block scripts %}
+    {% endblock %}
+</head>
+<body>
+    <div class="header group">
+        <div class="logo group">
+          <a href="/" class="logo_img"></a>
+          <a href="/" class="logo_txt">Eagle TRT <span class="tx-grey">Monkey Survey</span></a>
+
+        </div>
+        <div class="start_try">
+          <a href="/prova">Inizia!</a>
+        </div>
+        <div class="login-info">
+          <a href="/ranking" {% if 'ranking' in request.url %} class="active" {% endif %}>Classifica</a>
+          {% if session and session.user %}
+          <a href="/users/{{session.user.id}}" {% if session.user.id in request.url %} class="active" {% endif %}>Le mie prove</a>
+          <a href="/logout">Logout</a> 
+            {% endif %}
+        </div>
+    </div>
+    <div class="container group">
+      {% block content %}
+      {% endblock %}
+    </div>
+</body>
+</html>
+

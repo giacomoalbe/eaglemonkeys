@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    list-style: none;
+    text-decoration: none;
+ }
+
+ body {
+     font-size: 16px;
+ }
+
+ .tx-center {
+     text-align: center;
+ }
+
+ .tx-bold {
+     font-weight: bold;
+ }
+
+ p {
+     margin: 20px 0;
+     font-size: 1.1rem;
+ }
+
+ .header {
+     height: 80px;
+     background-color: rgb(30,140,230);
+     color: white;
+     text-align: center;
+     line-height: 80px;
+ }
+
+ .header .title {
+     font-size: 1.1rem;
+     font-weight: bold;
+ }
+
+ .container {
+     max-width: 700px;
+     margin: 20px auto;
+ }
+
+ .group:after {
+     content: "";
+     display: table;
+     clear: both;
+ }
+
+ ul.instructions {
+   padding: 15px 0;
+ }
+
+ ul.instructions li {
+   font-size: 17px;
+   position: relative;
+   min-height: 60px;
+   padding-left: 60px;
+   padding-top: 12px;
+   margin-bottom: 20px;
+ }
+
+ ul.instructions li > span:first-child {
+   position: absolute;
+   width: 45px;
+   height: 45px;
+   border-radius: 50%;
+   color: white;
+   background: rgb(20,110,250);
+   text-align: center;
+   line-height: 45px;
+   left: 0;
+   top: 0;
+ }
+
+ .header > div {
+   float: left;
+   width: 33.3333333333%;
+   height: 100%;
+   padding: 0 10px;
+ }
+
+ .header a {
+   display: inline-block;
+   text-align: center;
+   height: 40px;
+   border-radius: 3px;
+   line-height: 40px;
+   color: white;
+   padding: 0 15px;
+   cursor: pointer;
+ }
+
+ .header .login-info {
+   text-align: right;
+ }
+
+ .header .start_try a, 
+ .header .login-info a:hover,
+ .header .login-info a.active {
+   color: white;
+   background: rgb(20,110,250);
+ }
+
+ .header .logo {
+   text-align: left;
+ }
+
+ .header .logo > a {
+   float: left;
+ }
+
+ .header .logo .logo_txt {
+   padding-left: 15px;
+   font-size: 19px;
+   margin: 20px 0;
+ }
+
+ .tx-grey {
+   color: rgb(240,240,240);
+   font-size: 14px;
+ }
+
+ .header .logo .logo_img {
+   width: 60px;
+   height: 60px;
+   display: inline-block;
+   margin: 10px 0;
+   border-radius: 50%;
+   background-image: url('/static/img/logo_eagle.png');
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: auto 80%;
+ }
+
+ .btn {
+   margin: 0 auto;
+   display: block;
+   height: 60px;
+   text-align: center;
+   line-height: 60px;
+   width: 200px;
+   background: rgb(20,140,230);
+   color: white;
+   border-radius: 3px;
+   cursor: pointer;
+   border: none;
+   font-size: 17px;
+ }
+
+ .btn:hover {
+   background: rgb(30,120,240);
+ }
+
+ form > div > * {
+   display: block;
+   float: left;
+   width: 33.33333333333333%;
+   margin-bottom: 15px;
+   line-height: 45px;
+ }
+
+ form > div > div {
+   text-align: right;
+ }
+
+ form > div span {
+   padding-left: 15px;
+ }
+
+ form > div label {
+   width: 60%;
+   text-align: left;
+   display: inline-block;
+ }
+
+ form > div > input {
+   height: 45px;
+   border-radius: 3px;
+   border: 2px solid rgb(30,120,230);
+   padding: 10px;
+   font-size: 16px;
+   outline: none;
+ }
+
+ h1.countdown {
+   margin: 30px 0;
+ }
+
+ div.login-cont {
+   float: left;
+   width: 50%;
+   padding-right: 10%;
+   border-right: 2px solid rgb(220,220,220); 
+   min-height: 580px;
+   position: relative;
+ }
+
+ div.login-cont input[type="submit"] {
+   position: absolute;
+   bottom: 15px;
+   width: 80%;
+ }
+
+ div.login-cont:last-child {
+   padding-left: 10%;
+   padding-right: 0;
+   border: none;
+ }
+
+ div.login-cont form > div > * {
+   width: 100%;
+   height: 45px;
+ }
+
+ div.login-cont form label  {
+   height: 30px;
+   margin-bottom: 10px;
+ }
+
+ div.login-cont form input[type="text"] {
+   margin-bottom: 10px;
+ }
+
+ ul.try-list li.list-header {
+   font-size: 18px;
+   color: rgb(30,120,230);
+   border-bottom: 2px solid;
+   margin-bottom: 15px;
+ } 
+
+ ul.try-list li.list-elem {
+   border-bottom: 1px solid rgb(240,240,240);
+   margin-bottom: 10px;
+   height: 40px;
+   line-height: 30px;
+   padding: 5px;
+ }
+
+ ul.try-list li > div {
+   float: left;
+   width: 20%;
+   height: 100%;
+ }
+
+ ul.try-list li.list-elem .rank span {
+   display: block;
+   width: 30px;
+   height: 30px;
+   text-align: center;
+   color: black;
+   line-height: 30px;
+   background: white;
+ }
+
+ ul.try-list li.list-elem .rank .gold,
+ ul.try-list li.list-elem .rank .silver,
+ ul.try-list li.list-elem .rank .bronze {
+   background: #e4a410;
+   color: white;
+ }
+
+ ul.try-list li.list-elem .rank .silver {
+   background: #868182;
+ }
+
+ ul.try-list li.list-elem .rank .bronze {
+   background: #dd591f;
+ }
+
+ ul.try-list li > div:last-child {
+   text-align: right;
+ }
+
+ ul.try-list li.list-elem > div:last-child {
+   font-weight: bold;
+
+ }
+
+
+
+
