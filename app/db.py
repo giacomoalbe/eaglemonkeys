@@ -10,6 +10,34 @@ def read_file(name, mode='r'):
 
     return fopen
 
+def getFields():
+    fopen = read_file('fields') 
+    fields = []
+    content = fopen.read()  
+
+    for row in content.split("\n")[:-1]:
+        fields.append(row.split(','))
+
+    fopen.close()
+
+    return fields
+
+def checkFields(fieldsToCheck):
+    fopen = read_file('fields') 
+    correctFields = fopen.read().split("\n")[:-1] 
+
+    isFormCorrect = True
+
+    for cor_field in correctFields:
+        check_field = fieldsToCheck.get(cor_field.split(',')[0], None) 
+        print "CheckF: {0} == CorrectF: {1}".format(check_field, cor_field.split(',')[1])
+        if not check_field or check_field != cor_field.split(',')[1]:
+            isFormCorrect = False
+            break
+
+    return isFormCorrect
+
+
 def readTable(tablename):
     # Function for easily reading a table
     # which is included

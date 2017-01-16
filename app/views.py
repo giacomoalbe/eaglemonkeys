@@ -14,34 +14,6 @@ def login_required(func):
         return func(*args, **kwargs)
     return func_wrapper
 
-def getFields():
-    fopen = open('app/static/fields.csv', 'r')
-    fields = []
-    content = fopen.read()  
-
-    for row in content.split("\n")[:-1]:
-        fields.append(row.split(','))
-
-    fopen.close()
-
-    return fields
-
-def checkFields(fieldsToCheck):
-    fopen = open('app/static/fields.csv', 'r')
-    correctFields = fopen.read().split("\n")[:-1] 
-
-    isFormCorrect = True
-
-    for cor_field in correctFields:
-        check_field = fieldsToCheck.get(cor_field.split(',')[0], None) 
-        print "CheckF: {0} == CorrectF: {1}".format(check_field, cor_field.split(',')[1])
-        if not check_field or check_field != cor_field.split(',')[1]:
-            isFormCorrect = False
-            break
-
-    return isFormCorrect
-
-
 @app.route("/")
 def home():
     return render_template('index.html')
@@ -123,14 +95,14 @@ def signup():
 @app.route('/prova')
 @login_required
 def get_prova():
-    fields = getFields()
+    fields = db.getFields()
 
     return render_template('prova.html', context=fields)
 
 @app.route('/register-try', methods=['POST'])
 @login_required
 def register_try():
-    if checkFields(request.form) and request.form['time-elapsed']:
+    if db.checkFields(request.form) and request.form['time-elapsed']:
         # Add this try to the DB
         db.insertTry(request.form['time-elapsed'], 
                      time.strftime("%d/%m/%yT%H:%M:%S"),
