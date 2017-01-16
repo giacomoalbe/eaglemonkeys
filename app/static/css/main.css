@@ -155,27 +155,25 @@
 
  form > div > * {
    display: block;
-   float: left;
-   width: 33.33333333333333%;
+   width: 100%; 
    margin-bottom: 15px;
-   line-height: 45px;
  }
 
- form > div > div {
+ form > div > div.group > * {
+   width: 40%;
+   float: left;
+ }
+
+ form > div > div.group span {
+   width: 60%;
+   line-height: 45px;
+   color: rgb(30,120,230);
+   font-weight: bold;
    text-align: right;
  }
 
- form > div span {
-   padding-left: 15px;
- }
 
- form > div label {
-   width: 60%;
-   text-align: left;
-   display: inline-block;
- }
-
- form > div > input {
+ form > div input {
    height: 45px;
    border-radius: 3px;
    border: 2px solid rgb(30,120,230);

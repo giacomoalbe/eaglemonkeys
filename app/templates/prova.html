@@ -9,11 +9,11 @@
                 <form id="fieldsForm" action="/register-try" method="POST">
                     {% for field in context %}
                     <div>
-                        <div>
-                            <label for="">{{ field[0] }}</label>
+                        <label for="">{{ field[0] }}</label>
+                        <div class="group">
+                            <input type="text" name="{{ field[0] }}">
+                            <span>Inserisci: "{{ field[1] }}"</span>
                         </div>
-                        <input type="text" name="{{ field[0] }}">
-                        <span>Inserisci: "{{ field[1] }}"</span>
                     </div>
                     {% endfor %}
                     <input type="hidden" name="time-elapsed" value="0">

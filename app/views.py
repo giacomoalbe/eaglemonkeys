@@ -102,7 +102,8 @@ def get_prova():
 @app.route('/register-try', methods=['POST'])
 @login_required
 def register_try():
-    if db.checkFields(request.form) and request.form['time-elapsed']:
+    errors = db.checkFields(request.form)
+    if len(errors) == 0 and request.form['time-elapsed']:
         # Add this try to the DB
         db.insertTry(request.form['time-elapsed'], 
                      time.strftime("%d/%m/%yT%H:%M:%S"),
@@ -117,7 +118,8 @@ def register_try():
     else:
         context = {
             "success": False,
-            "error": "Some fields are missing or wrong! Try again!"
+            "error": "Qualche campo e' sbagliato oppure manca! Prova ancora!",
+            "errors_list": errors
         } 
 
         return render_template('try-success.html', context=context)

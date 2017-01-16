@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if context.success %}
-  <h1 class="tx-center countdown">Ce l'hai fatta! E ci sei riuscito in soli <span>{{context.time}} s</span>!</h1>
+<h1 class="tx-center countdown">Ce l'hai fatta! <br> E ci sei riuscito in soli <span>{{context.time}} s</span>!</h1>
 {% else %}
-  <h1>Ci sono stati degli errori!</h1>
-  <p>{{context.error}}</p>
+  <h1 class="tx-center countdown">Ci sono stati degli errori!</h1>
+  <p class="tx-center">{{context.error}}</p>
+  {% for error in context.errors_list %}
+  <p>Campo: {{error.field}}: Corretto: {{error.correct}} --> Corrente: {{error.current}}</p>
+  {% endfor %}
 {% endif %}
 <a href="/prova" class="btn">Ritenta!</a>
 {% endblock %}

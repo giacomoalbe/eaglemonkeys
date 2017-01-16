@@ -27,15 +27,19 @@ def checkFields(fieldsToCheck):
     correctFields = fopen.read().split("\n")[:-1] 
 
     isFormCorrect = True
+    errors = []
 
     for cor_field in correctFields:
         check_field = fieldsToCheck.get(cor_field.split(',')[0], None) 
         print "CheckF: {0} == CorrectF: {1}".format(check_field, cor_field.split(',')[1])
-        if not check_field or check_field != cor_field.split(',')[1]:
-            isFormCorrect = False
-            break
+        if not check_field or check_field.strip().lower() != cor_field.split(',')[1].strip().lower():
+            errors.append({
+                'field': cor_field.split(',')[0],
+                'correct': cor_field.split(',')[1],
+                'current': check_field
+            })
 
-    return isFormCorrect
+    return errors
 
 
 def readTable(tablename):
